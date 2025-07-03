@@ -38,7 +38,7 @@ func setup_game():
 		invalid_positions.append(invalid)
 		for c in columns:
 			var piece = piece_instance.instantiate()
-			piece.position = Vector2(c * 120 , r * 120)
+			piece.position = Vector2(c * 100 , r * 100)
 			piece.scale = Vector2(0.7, 0.7)
 			add_child(piece)
 			
@@ -97,8 +97,15 @@ func rewind():
 		await get_tree().create_timer(0.1).timeout
 		index = indexes[i]
 		await get_tree().create_timer(0.1).timeout
-		swap_pieces(0)
-	
+		match swap_mode:
+			0:
+				swap_pieces(1)
+			1:
+				swap_pieces(0)
+			2:
+				swap_pieces(3)
+			3: 
+				swap_pieces(2)
 	Global.player_moves.clear()
 	index = last_index
 	is_restarting = false
@@ -129,6 +136,7 @@ func swap_pieces(mode: int):
 	var clockwise: Array = [piece2, piece4, piece1, piece3]
 	var counter_clockwise: Array = [piece3, piece1, piece4, piece2]
 	var cross: Array = [piece4, piece3, piece2, piece1]
+	var reverse_cross: Array = [piece1, piece2, piece3, piece4]
 	
 	match mode:
 		0:
@@ -137,6 +145,8 @@ func swap_pieces(mode: int):
 			pieces_to_swap = counter_clockwise
 		2: 
 			pieces_to_swap = cross
+		3:
+			pieces_to_swap = reverse_cross
 
 	is_moving = true
 	var tween = create_tween().set_parallel(true)

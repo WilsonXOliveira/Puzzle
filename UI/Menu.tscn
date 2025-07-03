@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cveqhxji75y0m"]
+[gd_scene load_steps=15 format=3 uid="uid://cveqhxji75y0m"]
 
 [ext_resource type="Script" uid="uid://cw63nxkkbmune" path="res://Scripts/UI/Menu.gd" id="1_bn3uy"]
+[ext_resource type="PackedScene" uid="uid://4mtrudig5e5" path="res://UI/ModeSelection.tscn" id="2_gj576"]
 [ext_resource type="Texture2D" uid="uid://d1tbr0ilsod1r" path="res://Sprites/Background/MenuLeft.png" id="4_p61hg"]
 [ext_resource type="FontFile" uid="uid://cp82b0ynqncou" path="res://Sprites/Background/Cinzel-VariableFont_wght.ttf" id="4_xqy0n"]
 [ext_resource type="Texture2D" uid="uid://dbbuhe06xdfmu" path="res://Sprites/Background/MenuRight.png" id="5_1xiep"]
@@ -45,28 +46,41 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.86
 script = ExtResource("1_bn3uy")
 
-[node name="MenuLeft" type="Sprite2D" parent="."]
+[node name="Mode Selection" parent="." instance=ExtResource("2_gj576")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+
+[node name="Menu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuLeft" type="Sprite2D" parent="Menu"]
 texture_filter = 1
-position = Vector2(-285.001, -3.00063)
+position = Vector2(-285.001, -3.00064)
 scale = Vector2(0.973246, 0.990743)
 texture = ExtResource("4_p61hg")
 
-[node name="MenuRight" type="Sprite2D" parent="."]
+[node name="MenuRight" type="Sprite2D" parent="Menu"]
 texture_filter = 1
-position = Vector2(289, -2.49999)
+position = Vector2(289, -2.5)
 scale = Vector2(1.04861, 0.989198)
 texture = ExtResource("5_1xiep")
 
-[node name="Start" type="Button" parent="."]
+[node name="Start" type="Button" parent="Menu"]
 layout_mode = 2
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -183.0
-offset_top = -73.0
-offset_right = 184.0
-offset_bottom = 52.0
+offset_left = -203.0
+offset_top = -93.0
+offset_right = 164.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -83,16 +97,16 @@ text = "Começar"
 icon_alignment = 1
 expand_icon = true
 
-[node name="Quit" type="Button" parent="."]
+[node name="Quit" type="Button" parent="Menu"]
 layout_mode = 2
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -181.0
-offset_top = 67.0
-offset_right = 184.0
-offset_bottom = 194.0
+offset_left = -201.0
+offset_top = 47.0
+offset_right = 164.0
+offset_bottom = 174.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -107,7 +121,7 @@ text = "Sair"
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="Menu"]
 layout_mode = 2
 offset_left = -193.0
 offset_top = -199.0
@@ -116,5 +130,5 @@ offset_bottom = -116.0
 text = "Magic Pieces"
 label_settings = SubResource("LabelSettings_mt4j5")
 
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Menu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]

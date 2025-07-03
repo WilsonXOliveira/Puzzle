@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://btba6xd01nrll"]
 
-[ext_resource type="Script" uid="uid://b3da048wosyku" path="res://UI/LevelManagers.gd" id="1_deyjv"]
+[ext_resource type="Script" uid="uid://b3da048wosyku" path="res://Scripts/LevelManagers.gd" id="1_deyjv"]
 [ext_resource type="Script" uid="uid://b3ec5kclvkg5t" path="res://Scripts/UI/LevelButton.gd" id="2_5yh3j"]
 [ext_resource type="Texture2D" uid="uid://d4md1fl7f05hf" path="res://Sprites/Background/FundoUpdate.png" id="3_wk32g"]
 
@@ -142,7 +142,6 @@ x_cord = 2.0
 y_cord = 1.0
 
 [node name="Control2" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -282,7 +281,6 @@ x_cord = 2.0
 y_cord = 1.0
 
 [node name="FundoUpdate" type="Sprite2D" parent="."]
-visible = false
 z_index = -1
 position = Vector2(535, 324)
 scale = Vector2(0.544067, 0.391021)
