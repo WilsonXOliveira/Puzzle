@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://btba6xd01nrll"]
 
-[ext_resource type="Texture2D" uid="uid://h2qed14nn0oo" path="res://Sprites/Background/LevelButton.png" id="1_oenhi"]
-[ext_resource type="Script" path="res://Scripts/UI/LevelButton.gd" id="2_5yh3j"]
+[ext_resource type="Script" uid="uid://b3da048wosyku" path="res://UI/LevelManagers.gd" id="1_deyjv"]
+[ext_resource type="Script" uid="uid://b3ec5kclvkg5t" path="res://Scripts/UI/LevelButton.gd" id="2_5yh3j"]
 [ext_resource type="Texture2D" uid="uid://d4md1fl7f05hf" path="res://Sprites/Background/FundoUpdate.png" id="3_wk32g"]
 
 [node name="Control" type="Control"]
@@ -14,95 +14,34 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="L1" type="Button" parent="."]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_deyjv")
+
+[node name="L1" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 342.0
+offset_left = 397.0
 offset_top = 208.0
-offset_right = 422.0
+offset_right = 477.0
 offset_bottom = 288.0
-text = "1"
-icon = ExtResource("1_oenhi")
-flat = true
-icon_alignment = 1
 script = ExtResource("2_5yh3j")
 rows = 3
 columns = 3
+swap_mode = 1
 level_moves = 2
-level_set = Array[int]([2, 1, 2, 2, 1, 0, 0, 1, 0])
-match_colors = Array[int]([1, 2, 0])
-x_cord = 2.0
-y_cord = 1.0
-
-[node name="L23" type="Button" parent="."]
-layout_mode = 0
-offset_left = 388.0
-offset_top = 289.0
-offset_right = 468.0
-offset_bottom = 369.0
-text = "3
-"
-icon = ExtResource("1_oenhi")
-flat = true
-icon_alignment = 1
-script = ExtResource("2_5yh3j")
-rows = 3
-columns = 3
-level_moves = 3
-level_set = Array[int]([2, 0, 5, 5, 2, 2, 5, 0, 0])
-match_colors = Array[int]([5, 2, 0])
-x_cord = 2.0
-y_cord = 1.0
-
-[node name="L3" type="Button" parent="."]
-layout_mode = 0
-offset_left = 542.0
-offset_top = 208.0
-offset_right = 622.0
-offset_bottom = 288.0
-text = "3
-"
-icon = ExtResource("1_oenhi")
-flat = true
-icon_alignment = 1
-script = ExtResource("2_5yh3j")
-rows = 3
-columns = 3
-level_moves = 3
-level_set = Array[int]([5, 1, 5, 1, 1, 4, 5, 4, 4])
+level_set = Array[int]([1, 5, 5, 1, 1, 5, 4, 4, 4])
 match_colors = Array[int]([5, 1, 4])
 x_cord = 2.0
 y_cord = 1.0
 
-[node name="L4" type="Button" parent="."]
+[node name="L2" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 492.0
-offset_top = 288.0
-offset_right = 572.0
-offset_bottom = 368.0
-text = "4"
-icon = ExtResource("1_oenhi")
-flat = true
-icon_alignment = 1
-script = ExtResource("2_5yh3j")
-rows = 3
-columns = 3
-level_moves = 4
-level_set = Array[int]([6, 4, 3, 6, 4, 4, 3, 6, 3])
-match_colors = Array[int]([6, 4, 3])
-x_cord = 2.0
-y_cord = 1.0
-
-[node name="L2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 442.0
+offset_left = 497.0
 offset_top = 208.0
-offset_right = 522.0
+offset_right = 577.0
 offset_bottom = 288.0
-text = "2
-"
-icon = ExtResource("1_oenhi")
-flat = true
-icon_alignment = 1
 script = ExtResource("2_5yh3j")
 rows = 3
 columns = 3
@@ -112,16 +51,27 @@ match_colors = Array[int]([4, 5, 3])
 x_cord = 2.0
 y_cord = 1.0
 
-[node name="L6" type="Button" parent="."]
+[node name="L3" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 642.0
+offset_left = 597.0
 offset_top = 208.0
-offset_right = 722.0
+offset_right = 677.0
 offset_bottom = 288.0
-text = "2"
-icon = ExtResource("1_oenhi")
-flat = true
-icon_alignment = 1
+script = ExtResource("2_5yh3j")
+rows = 3
+columns = 3
+level_moves = 2
+level_set = Array[int]([6, 3, 6, 6, 3, 0, 0, 3, 0])
+match_colors = Array[int]([6, 3, 0])
+x_cord = 2.0
+y_cord = 1.0
+
+[node name="L4" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 289.0
+offset_right = 477.0
+offset_bottom = 369.0
 script = ExtResource("2_5yh3j")
 rows = 3
 columns = 3
@@ -131,17 +81,57 @@ match_colors = Array[int]([3, 2, 1])
 x_cord = 2.0
 y_cord = 1.0
 
-[node name="L7" type="Button" parent="."]
+[node name="L5" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 592.0
+offset_left = 497.0
 offset_top = 288.0
-offset_right = 672.0
+offset_right = 577.0
 offset_bottom = 368.0
-text = "3
-"
-icon = ExtResource("1_oenhi")
-flat = true
-icon_alignment = 1
+script = ExtResource("2_5yh3j")
+rows = 3
+columns = 3
+level_moves = 3
+level_set = Array[int]([2, 0, 5, 5, 2, 2, 5, 0, 0])
+match_colors = Array[int]([5, 2, 0])
+x_cord = 2.0
+y_cord = 1.0
+
+[node name="L6" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 597.0
+offset_top = 289.0
+offset_right = 677.0
+offset_bottom = 369.0
+script = ExtResource("2_5yh3j")
+rows = 3
+columns = 3
+level_moves = 3
+level_set = Array[int]([5, 1, 5, 1, 1, 4, 5, 4, 4])
+match_colors = Array[int]([5, 1, 4])
+x_cord = 2.0
+y_cord = 1.0
+
+[node name="L7" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 369.0
+offset_right = 527.0
+offset_bottom = 449.0
+script = ExtResource("2_5yh3j")
+rows = 3
+columns = 3
+level_moves = 4
+level_set = Array[int]([1, 4, 3, 1, 4, 4, 3, 1, 3])
+match_colors = Array[int]([1, 4, 3])
+x_cord = 2.0
+y_cord = 1.0
+
+[node name="L8" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 369.0
+offset_right = 627.0
+offset_bottom = 449.0
 script = ExtResource("2_5yh3j")
 rows = 3
 columns = 3
@@ -151,16 +141,166 @@ match_colors = Array[int]([6, 2, 4])
 x_cord = 2.0
 y_cord = 1.0
 
+[node name="Control2" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="L1" type="TextureButton" parent="Control2"]
+modulate = Color(1, 0.768627, 0.407843, 1)
+layout_mode = 0
+offset_left = 397.0
+offset_top = 208.0
+offset_right = 477.0
+offset_bottom = 288.0
+script = ExtResource("2_5yh3j")
+rows = 3
+columns = 3
+swap_mode = 1
+level_moves = 2
+level_set = Array[int]([1, 5, 5, 1, 1, 5, 4, 4, 4])
+match_colors = Array[int]([5, 1, 4])
+x_cord = 2.0
+y_cord = 1.0
+
+[node name="L2" type="TextureButton" parent="Control2"]
+modulate = Color(1, 0.768627, 0.407843, 1)
+layout_mode = 0
+offset_left = 497.0
+offset_top = 208.0
+offset_right = 577.0
+offset_bottom = 288.0
+script = ExtResource("2_5yh3j")
+rows = 3
+columns = 3
+swap_mode = 1
+level_moves = 2
+level_set = Array[int]([4, 6, 6, 2, 6, 2, 4, 2, 4])
+match_colors = Array[int]([6, 2, 4])
+x_cord = 2.0
+y_cord = 1.0
+
+[node name="L3" type="TextureButton" parent="Control2"]
+modulate = Color(1, 0.768627, 0.407843, 1)
+layout_mode = 0
+offset_left = 597.0
+offset_top = 208.0
+offset_right = 677.0
+offset_bottom = 288.0
+script = ExtResource("2_5yh3j")
+rows = 3
+columns = 3
+swap_mode = 1
+level_moves = 2
+level_set = Array[int]([5, 4, 4, 5, 2, 4, 2, 2, 5])
+match_colors = Array[int]([4, 5, 2])
+x_cord = 2.0
+y_cord = 1.0
+
+[node name="L4" type="TextureButton" parent="Control2"]
+modulate = Color(1, 0.768627, 0.407843, 1)
+layout_mode = 0
+offset_left = 397.0
+offset_top = 289.0
+offset_right = 477.0
+offset_bottom = 369.0
+script = ExtResource("2_5yh3j")
+rows = 4
+columns = 4
+swap_mode = 1
+level_moves = 3
+level_set = Array[int]([2, 2, 1, 2, 5, 1, 1, 2, 5, 5, 1, 5])
+match_colors = Array[int]([2, 1, 5])
+x_cord = 1.5
+y_cord = 1.0
+
+[node name="L5" type="TextureButton" parent="Control2"]
+modulate = Color(1, 0.768627, 0.407843, 1)
+layout_mode = 0
+offset_left = 497.0
+offset_top = 288.0
+offset_right = 577.0
+offset_bottom = 368.0
+script = ExtResource("2_5yh3j")
+rows = 2
+columns = 4
+swap_mode = 1
+level_moves = 3
+level_set = Array[int]([5, 5, 1, 1, 5, 1, 1, 5])
+match_colors = Array[int]([1, 5])
+x_cord = 2.0
+y_cord = 1.0
+
+[node name="L6" type="TextureButton" parent="Control2"]
+modulate = Color(1, 0.768627, 0.407843, 1)
+layout_mode = 0
+offset_left = 597.0
+offset_top = 289.0
+offset_right = 677.0
+offset_bottom = 369.0
+script = ExtResource("2_5yh3j")
+rows = 3
+columns = 3
+swap_mode = 1
+level_moves = 3
+level_set = Array[int]([5, 1, 5, 1, 1, 4, 5, 4, 4])
+match_colors = Array[int]([5, 1, 4])
+x_cord = 2.0
+y_cord = 1.0
+
+[node name="L8" type="TextureButton" parent="Control2"]
+modulate = Color(1, 0.768627, 0.407843, 1)
+layout_mode = 0
+offset_left = 547.0
+offset_top = 369.0
+offset_right = 627.0
+offset_bottom = 449.0
+script = ExtResource("2_5yh3j")
+rows = 3
+columns = 3
+level_moves = 4
+level_set = Array[int]([6, 2, 6, 4, 2, 4, 6, 4, 2])
+match_colors = Array[int]([6, 2, 4])
+x_cord = 2.0
+y_cord = 1.0
+
+[node name="L7" type="TextureButton" parent="Control2"]
+modulate = Color(1, 0.768627, 0.407843, 1)
+layout_mode = 0
+offset_left = 447.0
+offset_top = 369.0
+offset_right = 527.0
+offset_bottom = 449.0
+script = ExtResource("2_5yh3j")
+rows = 3
+columns = 3
+level_moves = 4
+level_set = Array[int]([1, 4, 3, 1, 4, 4, 3, 1, 3])
+match_colors = Array[int]([1, 4, 3])
+x_cord = 2.0
+y_cord = 1.0
+
 [node name="FundoUpdate" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(535, 324)
 scale = Vector2(0.544067, 0.391021)
 texture = ExtResource("3_wk32g")
 
-[connection signal="pressed" from="L1" to="L1" method="_on_pressed"]
-[connection signal="pressed" from="L23" to="L23" method="_on_pressed"]
-[connection signal="pressed" from="L3" to="L3" method="_on_pressed"]
-[connection signal="pressed" from="L4" to="L4" method="_on_pressed"]
-[connection signal="pressed" from="L2" to="L2" method="_on_pressed"]
-[connection signal="pressed" from="L6" to="L6" method="_on_pressed"]
-[connection signal="pressed" from="L7" to="L7" method="_on_pressed"]
+[connection signal="pressed" from="Control/L1" to="Control/L1" method="_on_pressed"]
+[connection signal="pressed" from="Control/L2" to="Control/L2" method="_on_pressed"]
+[connection signal="pressed" from="Control/L3" to="Control/L3" method="_on_pressed"]
+[connection signal="pressed" from="Control/L4" to="Control/L4" method="_on_pressed"]
+[connection signal="pressed" from="Control/L5" to="Control/L5" method="_on_pressed"]
+[connection signal="pressed" from="Control/L6" to="Control/L6" method="_on_pressed"]
+[connection signal="pressed" from="Control/L7" to="Control/L7" method="_on_pressed"]
+[connection signal="pressed" from="Control/L8" to="Control/L8" method="_on_pressed"]
+[connection signal="pressed" from="Control2/L1" to="Control2/L1" method="_on_pressed"]
+[connection signal="pressed" from="Control2/L2" to="Control2/L2" method="_on_pressed"]
+[connection signal="pressed" from="Control2/L3" to="Control2/L3" method="_on_pressed"]
+[connection signal="pressed" from="Control2/L4" to="Control2/L4" method="_on_pressed"]
+[connection signal="pressed" from="Control2/L5" to="Control2/L5" method="_on_pressed"]
+[connection signal="pressed" from="Control2/L6" to="Control2/L6" method="_on_pressed"]
+[connection signal="pressed" from="Control2/L8" to="Control2/L8" method="_on_pressed"]
+[connection signal="pressed" from="Control2/L7" to="Control2/L7" method="_on_pressed"]

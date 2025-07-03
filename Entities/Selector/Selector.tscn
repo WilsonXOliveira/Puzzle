@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpug2ssvq36w6"]
 
-[ext_resource type="Script" path="res://Scripts/Gameplay/Selector/Selector.gd" id="1_yf4e5"]
+[ext_resource type="Script" uid="uid://d4ixky2cmg3qs" path="res://Scripts/Gameplay/Selector/Selector.gd" id="1_yf4e5"]
 [ext_resource type="Texture2D" uid="uid://bmscqiwalj6vd" path="res://Sprites/PieceColors/OuterRing.png" id="3_4k7tj"]
 [ext_resource type="Texture2D" uid="uid://6rngvreyfqc0" path="res://Sprites/Selector/Arrow.png" id="4_23gw5"]
 
@@ -12,45 +12,45 @@ z_index = 2
 position = Vector2(-52, -49)
 texture = ExtResource("4_23gw5")
 
-[node name="Arrow2" type="Sprite2D" parent="."]
+[node name="Arrow2" type="Sprite2D" parent="Arrow"]
 z_index = 2
-position = Vector2(213, -50)
+position = Vector2(265, -1)
 rotation = 1.5708
 texture = ExtResource("4_23gw5")
 
-[node name="Arrow4" type="Sprite2D" parent="."]
+[node name="Arrow4" type="Sprite2D" parent="Arrow"]
 z_index = 2
-position = Vector2(-46, 219)
+position = Vector2(6, 268)
 rotation = -1.5708
 texture = ExtResource("4_23gw5")
 
-[node name="Arrow3" type="Sprite2D" parent="."]
+[node name="Arrow3" type="Sprite2D" parent="Arrow"]
 z_index = 2
-position = Vector2(218, 220)
+position = Vector2(270, 269)
 texture = ExtResource("4_23gw5")
 flip_h = true
 flip_v = true
 
-[node name="OuterRing" type="Sprite2D" parent="."]
+[node name="OuterRing" type="Sprite2D" parent="Arrow"]
 z_index = 1
-position = Vector2(0, -4.7)
+position = Vector2(52, 44.3)
 scale = Vector2(0.55, 0.6)
 texture = ExtResource("3_4k7tj")
 
-[node name="OuterRing2" type="Sprite2D" parent="."]
+[node name="OuterRing2" type="Sprite2D" parent="Arrow"]
 z_index = 1
-position = Vector2(172.5, -4.7)
+position = Vector2(224.5, 44.3)
 scale = Vector2(0.55, 0.6)
 texture = ExtResource("3_4k7tj")
 
-[node name="OuterRing3" type="Sprite2D" parent="."]
+[node name="OuterRing3" type="Sprite2D" parent="Arrow"]
 z_index = 1
-position = Vector2(0, 164)
+position = Vector2(52, 213)
 scale = Vector2(0.55, 0.6)
 texture = ExtResource("3_4k7tj")
 
-[node name="OuterRing4" type="Sprite2D" parent="."]
+[node name="OuterRing4" type="Sprite2D" parent="Arrow"]
 z_index = 1
-position = Vector2(172.5, 163.5)
+position = Vector2(224.5, 212.5)
 scale = Vector2(0.55, 0.6)
 texture = ExtResource("3_4k7tj")

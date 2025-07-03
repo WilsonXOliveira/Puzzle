@@ -1,13 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://cveqhxji75y0m"]
 
-[ext_resource type="Script" path="res://Scripts/UI/Menu.gd" id="1_bn3uy"]
+[ext_resource type="Script" uid="uid://cw63nxkkbmune" path="res://Scripts/UI/Menu.gd" id="1_bn3uy"]
 [ext_resource type="Texture2D" uid="uid://d1tbr0ilsod1r" path="res://Sprites/Background/MenuLeft.png" id="4_p61hg"]
 [ext_resource type="FontFile" uid="uid://cp82b0ynqncou" path="res://Sprites/Background/Cinzel-VariableFont_wght.ttf" id="4_xqy0n"]
 [ext_resource type="Texture2D" uid="uid://dbbuhe06xdfmu" path="res://Sprites/Background/MenuRight.png" id="5_1xiep"]
 [ext_resource type="Texture2D" uid="uid://bjo8pwnrg1ei" path="res://Sprites/Background/ButtonRework.png" id="5_03vye"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mebes"]
-texture = ExtResource("5_03vye")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_562g2"]
 texture = ExtResource("5_03vye")
@@ -15,13 +12,16 @@ texture = ExtResource("5_03vye")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p2ulx"]
 texture = ExtResource("5_03vye")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_olyx4"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mebes"]
 texture = ExtResource("5_03vye")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_82y3h"]
 texture = ExtResource("5_03vye")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jmtbp"]
+texture = ExtResource("5_03vye")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_olyx4"]
 texture = ExtResource("5_03vye")
 
 [sub_resource type="SystemFont" id="SystemFont_hd5dk"]
@@ -74,9 +74,9 @@ mouse_filter = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_xqy0n")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxTexture_mebes")
 theme_override_styles/hover = SubResource("StyleBoxTexture_562g2")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p2ulx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mebes")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "Começar"
@@ -100,9 +100,9 @@ mouse_filter = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_xqy0n")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxTexture_olyx4")
 theme_override_styles/hover = SubResource("StyleBoxTexture_82y3h")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_jmtbp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_olyx4")
 text = "Sair"
 icon_alignment = 1
 expand_icon = true

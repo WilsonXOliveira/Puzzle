@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://56i50l0ovwbr"]
 
-[ext_resource type="Script" path="res://Scripts/Gameplay/GameManager.gd" id="1_fr3hd"]
-[ext_resource type="Script" path="res://Scripts/Gameplay/Pieces/PieceHandler.gd" id="1_mrfb3"]
-[ext_resource type="Script" path="res://Scripts/Gameplay/Selector/SelectorHandle.gd" id="3_gmcog"]
+[ext_resource type="Script" uid="uid://blbjwefp03eme" path="res://Scripts/Gameplay/GameManager.gd" id="1_fr3hd"]
+[ext_resource type="Script" uid="uid://dcwjj8drwttfj" path="res://Scripts/Gameplay/Pieces/PieceHandler.gd" id="1_mrfb3"]
+[ext_resource type="Script" uid="uid://bu3roue78sf5v" path="res://Scripts/Gameplay/Selector/SelectorHandle.gd" id="3_gmcog"]
 [ext_resource type="Texture2D" uid="uid://bia2d1gwylxr8" path="res://Sprites/Background/Tabuleiro3x3.png" id="4_ylcb1"]
 [ext_resource type="PackedScene" uid="uid://c54fq3ew774f" path="res://UI/Debug.tscn" id="5_su1as"]
 
@@ -14,6 +14,10 @@ script = ExtResource("1_fr3hd")
 info = NodePath("MoveCounter")
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Node2D"]
+position = Vector2(576, 324)
+texture = ExtResource("4_ylcb1")
 
 [node name="Marker2D34" type="Marker2D" parent="Node2D"]
 position = Vector2(215.5, 75.5)
@@ -270,12 +274,14 @@ gizmo_extents = 45.4
 shape = SubResource("CircleShape2D_vmpyi")
 debug_color = Color(0.941176, 0, 0, 0.419608)
 
-[node name="PieceHandler" type="Node2D" parent="."]
+[node name="PieceHandler" type="Node2D" parent="." node_paths=PackedStringArray("label")]
 position = Vector2(351, 106)
 script = ExtResource("1_mrfb3")
+label = NodePath("../MoveCounter")
 
-[node name="SelectorHandler" type="Node2D" parent="."]
+[node name="SelectorHandler" type="Node2D" parent="." node_paths=PackedStringArray("pieces_label")]
 script = ExtResource("3_gmcog")
+pieces_label = NodePath("../MoveCounter2")
 
 [node name="MoveCounter" type="Label" parent="."]
 offset_left = 202.0
@@ -283,12 +289,14 @@ offset_top = 11.0
 offset_right = 411.0
 offset_bottom = 59.0
 
-[node name="Background" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(576, 324)
-texture = ExtResource("4_ylcb1")
+[node name="MoveCounter2" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 230.0
+offset_right = 224.0
+offset_bottom = 278.0
 
 [node name="Debug" parent="." instance=ExtResource("5_su1as")]
+visible = false
 offset_left = 12.0
 offset_top = 1.0
 offset_right = 12.0

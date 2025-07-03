@@ -9,42 +9,24 @@ var index: int = 0
 var swap_mode: int
 var right_position: int
 
-
 var invalid_positions: Array[int]
 var current_level_set: Array
 var pieces: Array
 var is_restarting: bool = false
 var is_moving: bool = false
 
+@export var label: Label
 @onready var piece_instance = preload("res://Entities/Pieces/Pieces.tscn")
 
 func _ready():
 	global_position = Global.start_position
 	Global.piece_handler = self
 	setup_game()
-	
-	#rewind()
 
 
-func rewind():
-	is_restarting = true
-	var last_index = index
-	
-	var teste = [2, 18, 11, 6, 10]
-	for i in range((teste.size())):
-		index = teste[i]
-		swap_pieces(swap_mode)
-		await get_tree().create_timer(0.2).timeout
-		
-	index = last_index
-	is_restarting = false
-	
 func _physics_process(_delta):
+	label.text = str(invalid_positions)
 	inputs()
-
-
-func change_position(x, y):
-	global_position = Vector2(215.5 + (120 * x), 75.5 + (120 * y))
 
 
 func setup_game():
@@ -72,17 +54,9 @@ func setup_game():
 		for i in range(min(pieces.size(), Global.mock_level_set.size())):
 			pieces[i].set_color(Global.mock_level_set[i])
 	
-	print(pieces.size())
 	right_position = pieces.size() / rows
 	limit = pieces.size() - rows
-	print(limit)
 	spawn_selector.emit()
-
-
-func remove_pieces():
-	for i in range(pieces.size()):  
-		pieces[i].queue_free()
-		
 	
 
 func inputs(): 
@@ -99,12 +73,51 @@ func inputs():
 		check_movement(right_position)
 
 	if Input.is_action_just_pressed("action") and Global.game_manager.moves_left > 0:
+		if is_restarting:
+			return
 		Global.game_manager.moves_left -= 1
+		Global.player_moves.append(index)
 		swap_pieces(swap_mode)
+		
+		if Global.game_manager.moves_left == 0:
+			Global.game_manager.finish_level.emit()
+			return
+			
+
+
+func rewind():
+	is_restarting = true
+	
+	var last_index = index
+	
+	var indexes: Array = Global.player_moves
+	indexes.reverse()
+	
+	for i in range((indexes.size())):
+		await get_tree().create_timer(0.1).timeout
+		index = indexes[i]
+		await get_tree().create_timer(0.1).timeout
+		swap_pieces(0)
+	
+	Global.player_moves.clear()
+	index = last_index
+	is_restarting = false
+
+
+func change_position(x, y):
+	global_position = Vector2(215.5 + (120 * x), 75.5 + (120 * y))
+
+
+func remove_pieces():
+	for i in range(pieces.size()):  
+		pieces[i].queue_free()
+	invalid_positions.clear()
+	pieces.clear()
 
 
 func swap_pieces(mode: int):
 	#Posição inicial das peças
+	
 	var piece1 = pieces[index]
 	var piece2 = pieces[index + 1]
 	var piece3 = pieces[index + right_position]
@@ -124,7 +137,7 @@ func swap_pieces(mode: int):
 			pieces_to_swap = counter_clockwise
 		2: 
 			pieces_to_swap = cross
-			
+
 	is_moving = true
 	var tween = create_tween().set_parallel(true)
 	
@@ -151,7 +164,6 @@ func swap_piece_index(swap_index: Array):
 
 func check_movement(value: int):
 	var inverted_position: int = columns - 2
-	
 	if value > 1 or value < -1:
 		if index + value >= limit:
 			index = index + -value * (rows - 2)
@@ -162,10 +174,9 @@ func check_movement(value: int):
 			
 	if index + value in invalid_positions or index + value < 0:
 		if value > 0:
+			print("index: ", index," inverted pos: ",  inverted_position," sum: ", index - inverted_position)
 			index = index - inverted_position 
 			return
 		index = index + inverted_position
 		return
 	index += value
-
-

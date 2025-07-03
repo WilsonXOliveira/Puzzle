@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cr43mahmlv3eh"]
 
-[ext_resource type="Script" path="res://Scripts/Gameplay/Pieces/Pieces.gd" id="1_y8e4d"]
+[ext_resource type="Script" uid="uid://bg2mr38taot3m" path="res://Scripts/Gameplay/Pieces/Pieces.gd" id="1_y8e4d"]
 [ext_resource type="Texture2D" uid="uid://d3yaflvgah22j" path="res://Sprites/PieceColors/PieceRing.png" id="2_337y3"]
 [ext_resource type="Texture2D" uid="uid://cuxokwcsuqo2u" path="res://Sprites/PieceColors/PieceShadow.png" id="2_c2bkp"]
 

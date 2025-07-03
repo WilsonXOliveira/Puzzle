@@ -1,28 +1,34 @@
 extends Node
 
 @export var info: Label
+var level_list_index: int
+var level_index: int
 var piece_rows: int
 var piece_set: Array
 var moves_left: int
 
+signal finish_level
+signal restart_level
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.game_manager = self
+	
+	finish_level.connect(on_finish_level)
+	level_list_index = Global.level_list_index
 	moves_left = Global.level_moves
 	piece_set = Global.piece_handler.pieces
 	piece_rows = Global.piece_handler.rows
+	level_index = Global.level_index
 
 
-func _process(_delta):
-	info.text = str("Restam: ", moves_left)
-	
-	if moves_left == 0:
-		finish_level()
-
-
-func finish_level():
+func on_finish_level():
 	if check_rows(Global.match_colors):
-		get_tree().quit()
+		Global.levels_completed[level_list_index][level_index] = true
+		get_tree().change_scene_to_file("res://UI/LevelSelect.tscn")
+		return
+	Global.piece_handler.rewind()
+	moves_left = Global.level_moves
 
 
 func check_rows(colors_match: Array) -> bool:
@@ -37,4 +43,3 @@ func check_rows(colors_match: Array) -> bool:
 			if s.piece_color != colors_match[r]:
 				return false
 	return true
-
