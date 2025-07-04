@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cveqhxji75y0m"]
+[gd_scene load_steps=16 format=3 uid="uid://cveqhxji75y0m"]
 
 [ext_resource type="Script" uid="uid://cw63nxkkbmune" path="res://Scripts/UI/Menu.gd" id="1_bn3uy"]
 [ext_resource type="PackedScene" uid="uid://4mtrudig5e5" path="res://UI/ModeSelection.tscn" id="2_gj576"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://cp82b0ynqncou" path="res://Sprites/Background/Cinzel-VariableFont_wght.ttf" id="4_xqy0n"]
 [ext_resource type="Texture2D" uid="uid://dbbuhe06xdfmu" path="res://Sprites/Background/MenuRight.png" id="5_1xiep"]
 [ext_resource type="Texture2D" uid="uid://bjo8pwnrg1ei" path="res://Sprites/Background/ButtonRework.png" id="5_03vye"]
+[ext_resource type="Texture2D" uid="uid://h2qed14nn0oo" path="res://Sprites/Background/LevelButton.png" id="7_ildal"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_562g2"]
 texture = ExtResource("5_03vye")
@@ -54,6 +55,15 @@ offset_top = -324.0
 offset_right = -576.0
 offset_bottom = -324.0
 
+[node name="BackButton" type="TextureButton" parent="Mode Selection"]
+layout_mode = 0
+offset_left = 1019.0
+offset_top = 17.0
+offset_right = 1083.0
+offset_bottom = 81.0
+texture_normal = ExtResource("7_ildal")
+stretch_mode = 0
+
 [node name="Menu" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
@@ -67,7 +77,7 @@ texture = ExtResource("4_p61hg")
 
 [node name="MenuRight" type="Sprite2D" parent="Menu"]
 texture_filter = 1
-position = Vector2(289, -2.5)
+position = Vector2(285, -2.5)
 scale = Vector2(1.04861, 0.989198)
 texture = ExtResource("5_1xiep")
 
@@ -121,6 +131,11 @@ text = "Sair"
 icon_alignment = 1
 expand_icon = true
 
+[node name="Options" type="Button" parent="Menu"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
 [node name="Label" type="Label" parent="Menu"]
 layout_mode = 2
 offset_left = -193.0
@@ -130,5 +145,6 @@ offset_bottom = -116.0
 text = "Magic Pieces"
 label_settings = SubResource("LabelSettings_mt4j5")
 
+[connection signal="pressed" from="Mode Selection/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Menu/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]

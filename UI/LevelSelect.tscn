@@ -286,6 +286,19 @@ position = Vector2(535, 324)
 scale = Vector2(0.544067, 0.391021)
 texture = ExtResource("3_wk32g")
 
+[node name="ColorRect" type="ColorRect" parent="FundoUpdate"]
+offset_left = -474.0
+offset_top = -777.0
+offset_right = -84.0
+offset_bottom = -654.0
+color = Color(0, 0.557192, 0.557435, 1)
+
+[node name="Label" type="RichTextLabel" parent="FundoUpdate/ColorRect"]
+layout_mode = 0
+offset_right = 367.0
+offset_bottom = 120.0
+text = "3x3"
+
 [connection signal="pressed" from="Control/L1" to="Control/L1" method="_on_pressed"]
 [connection signal="pressed" from="Control/L2" to="Control/L2" method="_on_pressed"]
 [connection signal="pressed" from="Control/L3" to="Control/L3" method="_on_pressed"]

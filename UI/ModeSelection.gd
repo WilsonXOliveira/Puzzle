@@ -12,7 +12,7 @@ func _ready() -> void:
 	disable_buttons.connect(on_disabled_buttons)
 	
 func _on_classic_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://UI/LevelSelect.tscn")
 
 
 func _on_hard_pressed() -> void:
